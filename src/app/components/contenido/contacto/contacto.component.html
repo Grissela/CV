@@ -10,15 +10,18 @@
                 <input type="text" id="firstname" formControlName="firstname" class="form-control">
             </div>
 
-            <!-- validacion campo vacio -->
-            <div [ngStyle]="{'color':'orange'}" *ngIf="this.Contact.get('firstname')?.errors?.['required']">
-                (El nombre no puede quedar vacio)
-            </div>
+            <div *ngIf="Contact.get('firstname')?.errors && Contact.get('firstname')?.touched" [ngStyle]="{'color':'orange'}">
+                <!-- validacion campo vacio -->
+                <div  *ngIf="this.Contact.get('firstname')?.errors?.['required']">
+                    (El nombre no puede quedar vacio)
+                </div>
 
-            <!-- validacion caracteres -->
-            <div [ngStyle]="{'color':'orange'}" *ngIf="this.Contact.get('firstname')?.errors?.['minlength']">
-                (Debe tener como minimo 10 caracteres)
+                <!-- validacion caracteres -->
+                <div  *ngIf="this.Contact.get('firstname')?.errors?.['minlength']">
+                    (Debe tener como minimo 10 caracteres)
+                </div>
             </div>
+            
 
 
             <!-- input email -->
@@ -27,38 +30,39 @@
                 <input type="email" id="email" formControlName="email" class="form-control">
             </div>
 
-            <!-- validacion campo vacio -->
-            <div [ngStyle]="{'color':'orange'}" *ngIf="this.Contact.get('email')?.errors?.['required']">
-                (El email no puede quedar vacio)
+            <div *ngIf="Contact.get('email')?.errors && Contact.get('email')?.touched" [ngStyle]="{'color':'orange'}">
+                <!-- validacion campo vacio -->
+                <div  *ngIf="this.Contact.get('email')?.errors?.['required']">
+                    (El email no puede quedar vacio)
+                </div>
+
+                <!-- validacion caracteres -->
+                <div  *ngIf="this.Contact.get('email')?.errors?.['email']">
+                    (El email no es valido)
+                </div> 
             </div>
-
-            <!-- validacion caracteres -->
-            <div [ngStyle]="{'color':'orange'}" *ngIf="this.Contact.get('email')?.errors?.['email']">
-                (El email no es valido)
-            </div> 
-
-            <p></p>
+            
 
             <!-- textarea mensaje -->
             <div class="">
                 <label for="mensaje" class="form-label">Mensaje </label>
                 <textarea id="message" formControlName="message" cols="30" rows="5" class="form-control"></textarea>
             </div>
+
+            <div *ngIf="Contact.get('message')?.errors && Contact.get('message')?.touched" [ngStyle]="{'color':'orange'}">
+                    <!-- validacion campo vacio -->
+                <div  *ngIf="this.Contact.get('message')?.errors?.['required']">
+                    (El mensaje no puede quedar vacio)
+                </div>
+
+                <!-- validacion caracteres -->
+                <div  *ngIf="this.Contact.get('message')?.errors?.['maxlength']">
+                    (El mensaje debe tener maximo 500 caracteres)
+                </div>
+            </div>
  
-             <!-- validacion campo vacio -->
-            <div [ngStyle]="{'color':'orange'}" *ngIf="this.Contact.get('message')?.errors?.['required']">
-                (El mensaje no puede quedar vacio)
-            </div>
-
-              <!-- validacion caracteres -->
-            <div [ngStyle]="{'color':'orange'}" *ngIf="this.Contact.get('message')?.errors?.['maxlength']">
-                (El mensaje debe tener maximo 500 caracteres)
-            </div>
-
-            <p></p>
-
             <!-- agrego el click para que envie -->
-            <div class="text-center">
+            <div class="text-center mt-2">
                 <button type="submit" (click)="send()" class="btn btn-success">Confirmar</button>
             </div>
 
@@ -70,10 +74,6 @@
 
             <!-- convertir a jason -->
             <p>{{Contact.value|json}}</p>
-            
-           
-            
         </form>
-
     </div>
 </div>
