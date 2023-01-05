@@ -1,0 +1,18 @@
+.contenido__img{
+    width: 70%;
+    margin: 0 auto;
+    text-align: center;
+    color: white;
+    
+}
+.bi-person-circle{
+    font-size: 15rem;
+    color: white;
+}
+.contenido{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../../../IMG/fondo.jpg");
+    background-position: center;
+    background-size: cover;
+    height: 88.5vh;
+    
+}

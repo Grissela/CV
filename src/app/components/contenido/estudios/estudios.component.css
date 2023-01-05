@@ -1,0 +1,36 @@
+.container{
+    margin: 0 auto;
+    width: 70%;
+    padding-top: 5px;
+    margin-top:40px;
+    margin-bottom: 40px;
+}
+h3{
+    font-weight: bolder;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.perfil{
+    color: gray;
+}
+.container p{
+    text-align: justify;
+    line-height: 2;
+}
+
+.buton{
+    background-color: rgb(46, 126, 201);
+    color: white;
+    padding: 15px 5px;
+    border-radius: 10px;
+    margin: 5px;
+    border: none;
+}
+.buton:hover{
+    background-color: rgb(26, 180, 207);
+    color: white;
+    padding: 15px 5px;
+    border-radius: 10px;
+    margin: 5px;
+} 

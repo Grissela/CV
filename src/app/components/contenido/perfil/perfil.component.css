@@ -1,0 +1,23 @@
+.container{
+    color: black;
+    margin: 0 auto;
+    
+    height: 130px;
+    width: 70%;
+    text-align: center;
+    padding-top: 5px;
+    margin-top:40px;
+    margin-bottom: 40px;
+}
+h3{
+    font-weight: bolder;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+.perfil{
+    color: gray;
+}
+.container p{
+    text-align: justify;
+    line-height: 2;
+}

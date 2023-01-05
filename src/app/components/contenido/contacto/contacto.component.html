@@ -1,0 +1,79 @@
+<!-- Contactos -->
+<div class="section" id="contacto"> 
+    <div class="container w-25 mx-auto border p-5">
+        <h3>Contactos</h3>
+        <hr>
+        <form [formGroup]="Contact" (submit)="send()">  
+            <!-- input nombres -->
+             <div class="">
+                <label for="firstname" class="form-label">Nombres </label>
+                <input type="text" id="firstname" formControlName="firstname" class="form-control">
+            </div>
+
+            <!-- validacion campo vacio -->
+            <div [ngStyle]="{'color':'orange'}" *ngIf="this.Contact.get('firstname')?.errors?.['required']">
+                (El nombre no puede quedar vacio)
+            </div>
+
+            <!-- validacion caracteres -->
+            <div [ngStyle]="{'color':'orange'}" *ngIf="this.Contact.get('firstname')?.errors?.['minlength']">
+                (Debe tener como minimo 10 caracteres)
+            </div>
+
+
+            <!-- input email -->
+             <div class="">
+                <label for="email" class="form-label">Email </label>
+                <input type="email" id="email" formControlName="email" class="form-control">
+            </div>
+
+            <!-- validacion campo vacio -->
+            <div [ngStyle]="{'color':'orange'}" *ngIf="this.Contact.get('email')?.errors?.['required']">
+                (El email no puede quedar vacio)
+            </div>
+
+            <!-- validacion caracteres -->
+            <div [ngStyle]="{'color':'orange'}" *ngIf="this.Contact.get('email')?.errors?.['email']">
+                (El email no es valido)
+            </div> 
+
+            <p></p>
+
+            <!-- textarea mensaje -->
+            <div class="">
+                <label for="mensaje" class="form-label">Mensaje </label>
+                <textarea id="message" formControlName="message" cols="30" rows="5" class="form-control"></textarea>
+            </div>
+ 
+             <!-- validacion campo vacio -->
+            <div [ngStyle]="{'color':'orange'}" *ngIf="this.Contact.get('message')?.errors?.['required']">
+                (El mensaje no puede quedar vacio)
+            </div>
+
+              <!-- validacion caracteres -->
+            <div [ngStyle]="{'color':'orange'}" *ngIf="this.Contact.get('message')?.errors?.['maxlength']">
+                (El mensaje debe tener maximo 500 caracteres)
+            </div>
+
+            <p></p>
+
+            <!-- agrego el click para que envie -->
+            <div class="text-center">
+                <button type="submit" (click)="send()" class="btn btn-success">Confirmar</button>
+            </div>
+
+            <!-- si valida dara el resultado -->
+            <div *ngIf="valido">
+                <p>{{resultado}} </p>
+                
+            </div>
+
+            <!-- convertir a jason -->
+            <p>{{Contact.value|json}}</p>
+            
+           
+            
+        </form>
+
+    </div>
+</div>
